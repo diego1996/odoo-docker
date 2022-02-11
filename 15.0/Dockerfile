@@ -70,7 +70,7 @@ RUN apt install python3-dev -y
 RUN apt-get install build-essential -y
 RUN apt-get install python3-psycopg2 -y
 
-RUN git clone --depth 1 --branch 15.0 https://github.com/diego1996/odoo /opt/odoo/server
+RUN git clone https://github.com/diego1996/odoo.git /opt/odoo/server
 RUN pip3 install -r /opt/odoo/server/requirements.txt
 
 RUN cp /opt/odoo/server/debian/init /etc/init.d/odoo
