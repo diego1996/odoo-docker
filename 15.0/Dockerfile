@@ -81,6 +81,8 @@ RUN chown root: /etc/init.d/odoo
 COPY ./entrypoint.sh /
 COPY ./odoo.conf /etc/odoo/
 
+# Set default user when running the container
+USER odoo
 # Set permissions and Mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
 RUN chown odoo /etc/odoo/odoo.conf \
     && mkdir -p /mnt/extra-addons \
@@ -95,8 +97,6 @@ ENV ODOO_RC /etc/odoo/odoo.conf
 
 COPY wait-for-psql.py /usr/local/bin/wait-for-psql.py
 
-# Set default user when running the container
-USER odoo
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["odoo"]
