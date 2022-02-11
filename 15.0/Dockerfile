@@ -65,6 +65,11 @@ ARG ODOO_SHA=6f7f4163fb5c73a24df365ca392fad120c9973df
 #    && rm -rf /var/lib/apt/lists/* odoo.deb
 
 RUN apt update -y && apt install git -y
+
+RUN apt install python3-dev libpq-dev -y
+RUN apt-get install build-essential -y
+RUN apt-get install python3-psycopg2 -y
+
 RUN git clone --depth 1 --branch 12.0 https://github.com/diego1996/odoo /opt/odoo/server
 RUN pip3 install -r /opt/odoo/server/requirements.txt
 
