@@ -66,7 +66,7 @@ ARG ODOO_SHA=6f7f4163fb5c73a24df365ca392fad120c9973df
 
 RUN apt update -y && apt install git -y
 
-RUN apt install python3-dev libpq-dev -y
+RUN apt install python3-dev -y
 RUN apt-get install build-essential -y
 RUN apt-get install python3-psycopg2 -y
 
